@@ -1,0 +1,121 @@
+[
+    {
+        "image": "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=504&q=80",
+        "description": "Mesa de jantar e cadeiras para família",
+        "value": "500",
+        "type": "Mesas",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1620954799930-76530e07ea5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1380&q=80",
+        "description": "Mesa de jantar e cadeiras para duas pessoas",
+        "value": "200",
+        "type": "Mesas",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1599327286062-40b0a7f2b305?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+        "description": "Mesa redonda e cadeiras",
+        "value": "300",
+        "type": "Mesas",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1592863689950-e7e8ef4ea992?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "description": "Mesa de jantar e cadeiras redonda de vidro",
+        "value": "350",
+        "type": "Mesas",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1576326040030-c6de7b544068?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+        "description": "Mesa de jantar e cadeiras familiar com design clássico",
+        "value": "600",
+        "type": "Mesas",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "description": "Sofá de camurça de cor verde",
+        "value": "250",
+        "type": "Sofás",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1549187774-b4e9b0445b41?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+        "description": "Sofá de couro de cor laranja",
+        "value": "270",
+        "type": "Sofás",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1615800002234-05c4d488696c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+        "description": "Sofá para duas pessoas",
+        "value": "150",
+        "type": "Sofás",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1605365070248-299a182a2ca6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+        "description": "Sofá tamanho família",
+        "value": "340",
+        "type": "Sofás",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1605365070248-299a182a2ca6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+        "description": "Sofá tamanho família",
+        "value": "340",
+        "type": "Sofás",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1632392417634-163538c605bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
+        "description": "Armário de cozinha de cor verde",
+        "value": "290",
+        "type": "Armários",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1595515106864-077d30192c56?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+        "description": "Armário de produtos de banheiro",
+        "value": "150",
+        "type": "Armários",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1556908221-f685cdb3b0ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTF8fGNhYmluZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+        "description": "Armário de Louças branco",
+        "value": "170",
+        "type": "Armários",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "description": "Cama de casal king-size",
+        "value": "780",
+        "type": "Camas",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1531835551805-16d864c8d311?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+        "description": "Cama de casal tradicional",
+        "value": "520",
+        "type": "Camas",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1620332372374-f108c53d2e03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80",
+        "description": "Cama box de casal",
+        "value": "600",
+        "type": "Camas",
+        "group": "Movel"
+    },
+    {
+        "image": "https://images.unsplash.com/photo-1564273795917-fe399b763988?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80",
+        "description": "Cama de solteiro tradicional",
+        "value": "450",
+        "type": "Camas",
+        "group": "Movel"
+    }
+]

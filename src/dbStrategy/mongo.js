@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -9,4 +9,4 @@ mongoClient.connect(() => {
     db = mongoClient.db(process.env.MONGO_DATABASE);
 });
 
-export {db};
+export { db, ObjectId};
