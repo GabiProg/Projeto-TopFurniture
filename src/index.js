@@ -14,5 +14,6 @@ app.use(cors());
 app.use(authRouter);
 app.use(homeRouter);
 
-const PORT = process.env.PORT;
-app.listen(PORT, () => console.log('The server is current listening.'));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log('The server is listening on ' + PORT + '.'));
