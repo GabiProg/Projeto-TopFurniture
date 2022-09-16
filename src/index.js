@@ -14,6 +14,6 @@ app.use(cors());
 app.use(authRouter);
 app.use(homeRouter);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000; //testing deploy
 
 app.listen(PORT, () => console.log('The server is listening on ' + PORT + '.'));
