@@ -1,5 +1,6 @@
 import { db } from '../dbStrategy/mongo.js';
 import jwt from 'jsonwebtoken';
+import { v4 as uuid } from 'uuid';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import joi from 'joi';
@@ -68,22 +69,18 @@ export async function SingUp (req, res) {
 
     try {
         const findUser = await db.collection('usuariosCadastrados').findOne({email});
-       
         const dados = {userId: findUser._id};
+        const chaveSecreta = process.env.JWT_SECRET;
 
         if(findUser && bcrypt.compareSync(password, findUser.password)){
 
-            const chaveSecreta = process.env.JWT_SECRET;
-            const configuracoes = { expiresIn: 60*60*24*30 };
-            const token = jwt.sign(dados, chaveSecreta, configuracoes);
+            const token = jwt.sign(dados, chaveSecreta);
 
             await db.collection('sessoes').insertOne({
                 token,
                 userId: findUser._id
             });
-            
-            console.log({token, dados});
-
+            console.log({userId: findUser._id});
             res.status(201).send({token});
 
         } else {

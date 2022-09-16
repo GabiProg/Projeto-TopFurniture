@@ -20,9 +20,8 @@ async function AuthorizeUser (req, res, next){
             return res.status(401).send('Acesso negado.');
         }
         
-        const session = await db.collection('sessoes').findOne({ userId: dados.userId});
-        console.log(session);
-        if (session === '') {
+        const session = await db.collection('sessoes').findOne({ userId: ObjectId(dados.userId)});
+        if (!session) {
             return res.status(401).send('Acesso negado.');
         }
 

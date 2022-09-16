@@ -1,12 +1,14 @@
 import products from '../products/products.json' assert {type: "json"};
+import { db } from '../dbStrategy/mongo.js';
 import joi from 'joi';
 
 export async function SendProducts (req, res) {
     return res.json(products);
 }
 
-export async function Checkout(req, res) {
+export async function Checkout (req, res) {
     const { name, cpf, product, value } = req.body;
+    const session = res.locals.session;
   
     const CheckoutSchema = joi.object({
       name: joi.string().required(),
@@ -24,17 +26,19 @@ export async function Checkout(req, res) {
     }
   
     try {
-      const findUser = await db
-        .collection("usuariosCadastrados")
-        .findOne({ email });
+      const getSession = await db.collection('sessoes').findOne({token: session.token});
+       
+      if (!getSession) {
+          return res.status(401).send('Acesso negado.');
+      }
   
       await db.collection("vendas").insertOne({
-        userId: findUser._id,  
         name,
         cpf,
         product,
         value,
-        status: 'Concluída'
+        status: 'Concluída',
+        userId: getSession._id 
       });
   
       res.status(201).send("Venda Concluída");
