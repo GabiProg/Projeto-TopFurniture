@@ -8,11 +8,13 @@ dotenv.config();
 
 const app = express();
 
+const PORT = process.env.PORT || 5000;
+
 app.use(express.json());
 app.use(cors());
 
 app.use(authRouter);
 app.use(homeRouter);
 
-app.listen( process.env.PORT || 5000, () => console.log('The server is listening on ' + process.env.PORT));
+app.listen(PORT, () => console.log(`The server is listening on ${PORT}`));
 // const PORT = process.env.PORT || 5000; // https://back-project-topfurniture.herokuapp.com/
