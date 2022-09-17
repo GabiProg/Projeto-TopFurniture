@@ -14,6 +14,5 @@ app.use(cors());
 app.use(authRouter);
 app.use(homeRouter);
 
-const PORT = process.env.PORT || 5000; // https://back-project-topfurniture.herokuapp.com/
-console.log(process.env.PORT);
-app.listen(PORT, () => console.log('The server is listening on ' + PORT + '.'));
+app.listen( process.env.PORT || 5000, () => console.log('The server is listening on ' + process.env.PORT));
+// const PORT = process.env.PORT || 5000; // https://back-project-topfurniture.herokuapp.com/
