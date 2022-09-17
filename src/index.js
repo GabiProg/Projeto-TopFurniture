@@ -15,5 +15,5 @@ app.use(authRouter);
 app.use(homeRouter);
 
 const PORT = process.env.PORT || 5000; // https://back-project-topfurniture.herokuapp.com/
-console.log(PORT);
+console.log(process.env.PORT);
 app.listen(PORT, () => console.log('The server is listening on ' + PORT + '.'));
