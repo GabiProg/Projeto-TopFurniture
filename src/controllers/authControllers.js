@@ -19,19 +19,19 @@ export async function SignIn (req, res){
 
     const validation = userSchema.validate(req.body, {abortEarly: false});
     
-    if(validation.error){
+    if (validation.error) {
         const erros = validation.error.details.map(detail => detail.message);
         res.status(422).send(erros);
         return;
     }
 
-    if(password !== passwordConfirm){
+    if (password !== passwordConfirm) {
         return res.status(409).send('Por favor, confirme a senha corretamente.');
     }
 
     try{
         const findUser = await db.collection('usuariosCadastrados').findOne({email});
-        if(findUser){
+        if (findUser) {
            return res.status(409).send('O usuário já está cadastrado.');
         }
 
@@ -59,29 +59,31 @@ export async function SingUp (req, res) {
         email: joi.string().email().required(),
         password: joi.string().required().min(6)
     });
-
+    
     const validation = userSchema.validate(req.body, {abortEarly: false});
-    if(validation.error){
+    
+    if (validation.error) {
         const erros = validation.error.details.map(detail => detail.message);
         res.status(422).send(erros);
         return;
     }
 
     try {
-        const findUser = await db.collection('usuariosCadastrados').findOne({email});
-        const dados = {userId: findUser._id};
         const chaveSecreta = process.env.JWT_SECRET;
+        
+        const findUser = await db.collection('usuariosCadastrados').findOne({email: `${email}`});
+        console.log(findUser);
+        const dados = {userId: findUser._id};
+        const token = jwt.sign(dados, chaveSecreta);
 
-        if(findUser && bcrypt.compareSync(password, findUser.password)){
-
-            const token = jwt.sign(dados, chaveSecreta);
+        if (findUser && bcrypt.compareSync(password, findUser.password)) {
 
             await db.collection('sessoes').insertOne({
                 token,
                 userId: findUser._id
             });
-            console.log({userId: findUser._id});
-            res.status(201).send({token});
+
+            res.status(201).send({token: token, name: findUser.name});
 
         } else {
             res.status(401).send('Senha ou email incorretos.');
