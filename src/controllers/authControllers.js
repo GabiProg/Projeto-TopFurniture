@@ -71,7 +71,7 @@ export async function SingUp (req, res) {
     try {
         const chaveSecreta = process.env.JWT_SECRET;
         
-        const findUser = await db.collection('usuariosCadastrados').findOne({email: `${email}`});
+        const findUser = await db.collection('usuariosCadastrados').findOne({email});
         console.log(findUser);
         const dados = {userId: findUser._id};
         const token = jwt.sign(dados, chaveSecreta);
