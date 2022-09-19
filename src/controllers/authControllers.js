@@ -66,16 +66,17 @@ export async function SingUp (req, res) {
         res.status(422).send(erros);
         return;
     }
+    
     const configuracoes = { expiresIn: 60*60*24*30 }
     const chaveSecreta = process.env.JWT_SECRET;
 
     try {
-        const findUser = await db.collection('usuariosCadastrados').find({email: `${email}`});
+        const findUser = await db.collection('usuariosCadastrados').find().toArray();
        
         const dados = {userId: findUser._id};
         const token = jwt.sign(dados, chaveSecreta, configuracoes);
 
-        if (findUser && bcrypt.compareSync(password, findUser.password)) {
+        if (findUser._id && bcrypt.compareSync(password, findUser.password)) {
 
             await db.collection('sessoes').insertOne({
                 token,
