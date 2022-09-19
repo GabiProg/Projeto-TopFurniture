@@ -29,6 +29,11 @@ export async function SignIn (req, res){
     }
 
     try{
+        const configuracoes = { expiresIn: 60*60*24*30 };
+        const chaveSecreta = process.env.JWT_SECRET;
+        const dados = {name: name};
+        const token = jwt.sign(dados, chaveSecreta, configuracoes);
+
         const findUser = await db.collection('usuariosCadastrados').findOne({email});
         if (findUser) {
            return res.status(409).send('O usuário já está cadastrado.');
@@ -38,13 +43,14 @@ export async function SignIn (req, res){
         const cryptopasswordConfirm = bcrypt.hashSync(passwordConfirm, 10);
 
         await db.collection('usuariosCadastrados').insertOne({
+            token,
             name,
             email,
             password: cryptoPassword,
             passwordConfirm: cryptopasswordConfirm
         });
 
-        res.status(201).send('Usuário cadastrado.');
+        res.status(201).send({token: token, name: name});
 
     } catch (err) {
         res.sendStatus(500);
@@ -53,6 +59,9 @@ export async function SignIn (req, res){
 
 export async function SingUp (req, res) {
     const { email, password } = req.body;
+    const { authorization } = req.headers;
+    const token = authorization?.replace('Bearer ', '');
+    const chaveSecreta = process.env.JWT_SECRET;
 
     const userSchema = joi.object({
         email: joi.string().email().required(),
@@ -66,23 +75,28 @@ export async function SingUp (req, res) {
         res.status(422).send(erros);
         return;
     }
-    const configuracoes = { expiresIn: 60*60*24*30 }
-    const chaveSecreta = process.env.JWT_SECRET;
-
+   
     try {
-        const findUser = await db.collection('usuariosCadastrados').find({email: `${email}`});
-       
-        const dados = {userId: findUser._id};
-        const token = jwt.sign(dados, chaveSecreta, configuracoes);
+
+        if (!token) {
+            return res.sendStatus(401);
+        }
+
+        const dados = jwt.verify(token, chaveSecreta);
+        if (!dados) {
+            return res.status(401).send('Acesso negado.');
+        }
+
+        const findUser = await db.collection('usuariosCadastrados').find({userId: ObjectId(dados.userId)});
 
         if (findUser && bcrypt.compareSync(password, findUser.password)) {
 
             await db.collection('sessoes').insertOne({
-                token,
-                userId: findUser._id
+                userId: findUser._id,
+                token: findUser.token
             });
 
-            res.status(201).send({token: token, name: findUser.name});
+            res.status(201).send({ name: findUser.name});
 
         } else {
             res.status(401).send('Senha ou email incorretos.');
