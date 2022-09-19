@@ -1,6 +1,5 @@
 import { db } from '../dbStrategy/mongo.js';
 import jwt from 'jsonwebtoken';
-import { v4 as uuid } from 'uuid';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import joi from 'joi';
@@ -71,8 +70,8 @@ export async function SingUp (req, res) {
     try {
         const chaveSecreta = process.env.JWT_SECRET;
         
-        const findUser = await db.collection('usuariosCadastrados').findOne({email});
-        console.log(findUser);
+        const findUser = await db.collection('usuariosCadastrados').find({email: `${email}`});
+       
         const dados = {userId: findUser._id};
         const token = jwt.sign(dados, chaveSecreta);
 
